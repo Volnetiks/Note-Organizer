@@ -10,10 +10,16 @@ import SwiftData
 
 @main
 struct quicknotesApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .modelContainer(for: Note.self)
+            ContentView().modelContainer(for: Note.self)
         }
+        MenuBarExtra {
+            StatusView().modelContainer(for: Note.self)
+        } label: {
+            Label("Notes", systemImage: "pencil")
+        }
+        .menuBarExtraStyle(.window)
     }
 }
